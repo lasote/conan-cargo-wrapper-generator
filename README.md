@@ -1,6 +1,6 @@
 # Conan cargo wrapper generator
 
-If you are writting some Rust wrapper for a C library that is uploaded to **conan** you can use this generator to write a Rust build script containing all the paths/lib names required to link with. You can see a real example in my fork of rust-openssl wrapper (https://github.com/lasote/rust-openssl/tree/master/openssl-sys)
+If you are writting some Rust bindings for a C library that is uploaded to **conan** you can use this generator to write a Rust build script containing all the paths/lib names required to link with. You can see a real example in my fork of rust-openssl wrapper (https://github.com/lasote/rust-openssl/tree/master/openssl-sys)
 
 ## How to use
 
