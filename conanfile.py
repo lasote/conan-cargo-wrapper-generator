@@ -24,18 +24,18 @@ pub const INCLUDE_PATHS: &'static [ &'static str ] = &[%(include_paths)s];
             return template.replace("}", "    %s\n}" % line)
         
         def comma_separate(list):
-            return ", ".join(['"%s"' % x for x in list])
+            return ", ".join(['r#"%s"#' % x for x in list])
 
         for lib_path in self.deps_build_info.lib_paths:
-            new = 'println!("cargo:rustc-link-search=native=%s");' % lib_path;
+            new = 'println!(r#"cargo:rustc-link-search=native=%s"#);' % lib_path;
             template = append_to_template(new)
             
         for lib in self.deps_build_info.libs:
-            new = 'println!("cargo:rustc-link-lib=%s");' % lib;
+            new = 'println!(r#"cargo:rustc-link-lib=%s"#);' % lib;
             template = append_to_template(new)
         
         for lib in self.deps_build_info.include_paths:
-            new = 'println!("cargo:include=%s");' % lib;
+            new = 'println!(r#"cargo:include=%s"#);' % lib;
             template = append_to_template(new)
             
         template = template % {"lib_paths": comma_separate(self.deps_build_info.lib_paths),
